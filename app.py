@@ -13,7 +13,7 @@ def create_app(test_config=None):
 
     @app.route('/')
     def get_greeting():
-        greeting = "Hello,This app work just for back-end" 
+        greeting = "Hello,This app work for back-end not for front-end" 
         return greeting
     
 
