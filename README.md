@@ -18,5 +18,9 @@ The technical purposes is to applied what is learning in Full stack program such
 
 The URL of this application -> https://capstoneproject2.herokuapp.com/
 
+# starting and setup
 
-
+for running this application in local machine 
+- open terminal and directory of project
+- run ```bash pip install -r requirements.txt```
+- set up **DATABASE_URL** in commad line by ```bash set DATABASE_URL="{DATABASE_URL}" ``` **note** for mac ```export```
