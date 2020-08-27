@@ -14,7 +14,7 @@ The technical purposes is to applied what is learning in Full stack program such
 * Using Auth0 as third-party to configure authentication and roles-based access control
 * finally deployment this application in heroku 
 
-The URL of this application -> https://git.heroku.com/capstoneproject2.git
+The URL of this application -> https://capstoneproject2.herokuapp.com/
 
 
 
