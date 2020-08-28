@@ -119,7 +119,7 @@ class CapstoneTestCase(unittest.TestCase):
 
     def test_07_insert_new_movies(self):
         """Testing the success of posting new movie"""
-        res = self.client().post('/movies', json=self.new_movie,
+        res = self.client().post('/movies', json=self.add_new_movie,
                                  headers={"Authorization": (producer)})
         data = json.loads(res.data)
         self.assertEqual(res.status_code, 200)
