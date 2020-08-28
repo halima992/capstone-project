@@ -22,8 +22,8 @@ The URL of this application -> https://capstoneproject2.herokuapp.com/
 
 ## for running this application in local machine 
 1.  open terminal and directory of project
-2. run ```bash pip install -r requirements.txt```
-3. set up **DATABASE_URL** in commad line by ```bash set DATABASE_URL={DATABASE_URL} ``` **note** for mac ```export``` not ```set```
+2. run `bash pip install -r requirements.txt`
+3. set up **DATABASE_URL** in commad line by `bash set DATABASE_URL={DATABASE_URL} ` **note** for mac `export` not `set`
 4. set up  authentication and roles at auth0.the permissions in this project categorized into 3 categories according to roles
   * ASSISTANT 
    ```bash 
