@@ -64,15 +64,15 @@ The URL of this application -> https://capstoneproject2.herokuapp.com/
     dropdb capstone_test
     createdb capstone_test
     psql capstone_test < capstone.psql
-    export three tokens ```ASSISTANT```,```DIRECTOR``` and ```PRODUCER```
+    export three tokens `ASSISTANT`,`DIRECTOR` and `PRODUCER`
     python test_app.py
     ```
     *note* `createdb` and `dropdb` doesn't work on Windows directly .So rather than using `CREATE DATABASE`, and `DROP database` in `psql `command. Also this command `psql capstone_test < capstone.psql` in windows should specific owner like this  `psql -U postgres capstone_test < capstone.psql`
-## Endpoint
+# Endpoint
 
 The endpoints in this project as following:
 
-- ### GET /actors
+- ## GET /actors
 
     **In general** return list of actors
 ```bash
@@ -112,7 +112,7 @@ The endpoints in this project as following:
         "success": true
     }
 ```
-- ### GET /movies
+- ## GET /movies
 
     **In general** return list of movies
 
@@ -135,7 +135,7 @@ The endpoints in this project as following:
 
  ```
 
-#### DELETE /actors/<int:id>
+## DELETE /actors/ <int:id>
 
 **In general** Return deleted actor 
 
@@ -146,7 +146,7 @@ The endpoints in this project as following:
 }
 ```
 
-#### DELETE /movies/<int:id>
+## DELETE /movies/ <int:id>
 
 **In general** Return deleted movie 
 
@@ -156,7 +156,7 @@ The endpoints in this project as following:
   "success": true
 }
 ```
-#### POST /actors
+## POST /actors
 
 **In general** Return  success true for posting new actor
 
@@ -165,7 +165,7 @@ The endpoints in this project as following:
   "success": true
 }
 ```
-#### POST /movies
+## POST /movies
 
 **In general** Return  success true for posting new movie
 
@@ -175,7 +175,7 @@ The endpoints in this project as following:
 }
 ```
 
-#### PATCH /actors/<int:id>
+## PATCH /actors/ <int:id>
 
 **In general** Return  modifed actor 
 
@@ -192,7 +192,7 @@ The endpoints in this project as following:
     "success": true
 }
 ```
-#### PATCH /movies/int:id>
+## PATCH /movies/ <int:id>
 
 **In general** Return  modifed movie 
 
@@ -207,4 +207,89 @@ The endpoints in this project as following:
     ],
     "success": true
 }
+```
+
+# Erorr handler
+
+ erros also returned as json not  html For example as following in bad request:
+
+```bash
+{
+    "success": False,
+    "error": 400,
+    "message": "bad request"
+}
+```
+
+
+The API will return diffrent types of errors:
+
+1. 400 –> bad request
+2. 404 –> not found
+3. 422 –> unprocessable
+4. 500 -> internal server error
+
+# Deployment
+for running app in Heroku we need to follow set of steps as following:
+1. Install Heroku
+2. saveig our package requirements by using command 
+
+```bash
+
+    pip freeze > requirements.txt
+
+```
+*note*: with any installation you should update by this command.
+
+3. touch Profile and install gunicorn package
+  * install gunicorn by command
+    ```bash
+     pip install gunicorn
+     ```
+ * houseing app in app.py by this instruction Procfile
+
+    ```bash
+        web: gunicorn app:app
+    ```
+4.  Install the following package
+    ```bash
+        pip install flask_script
+        pip install flask_migrate
+        pip install psycopg2-binary
+    ```
+5. doing local migration
+ ```bash   
+    python manage.py db init
+    python manage.py db migrate
+    python manage.py db upgrade
+```
+6. Creating Heroku app
+```bash  
+    heroku create name_of_your_app
+```
+7. Adding git remote for Heroku to local repository
+```bash  
+    git remote add heroku heroku_git_url
+```
+8. Add postgresql  for database
+```bash  
+    heroku addons:create heroku-postgresql:hobby-dev --app name_of_your_application
+```
+9. Add all the Variables in Heroku by click Reveal Config Vars
+```bash
+    DATABASE_URL
+    AUTH0_DOMAIN
+    ALGORITHMS
+    API_AUDIENCE
+    ASSISTANT
+    DIRECTOR
+    PRODUCER
+```
+10. Push to Heroku
+```bash
+    git push heroku master
+```
+11. Run Migrations for database in Heroku 
+```bash
+    heroku run python manage.py db upgrade --app name_of_your_application
 ```

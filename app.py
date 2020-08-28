@@ -162,7 +162,15 @@ def create_app(test_config=None):
             "success": False,
             "error": 400,
             "message": "bad request"
-        }), 400  
+        }), 400 
+    @app.errorhandler(500)
+    def internal_server_error(error):
+        return jsonify({
+            "success": False,
+            "error": 500,
+            "message": "Internal Server Error"
+        }), 500
+         
     '''implement error handler for AuthError'''
     @app.errorhandler(AuthError)
     def error_handler(exception):
