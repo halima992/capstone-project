@@ -21,10 +21,10 @@ The URL of this application -> https://capstoneproject2.herokuapp.com/
 # starting and setup
 
 ## for running this application in local machine 
-- ### open terminal and directory of project
-- ### run ```bash pip install -r requirements.txt```
-- ### set up **DATABASE_URL** in commad line by ```bash set DATABASE_URL={DATABASE_URL} ``` **note** for mac ```export``` not ```set```
-- ### set up  authentication and roles at auth0.the permissions in this project categorized into 3 categories according to roles
+1.  open terminal and directory of project
+2. run ```bash pip install -r requirements.txt```
+3. set up **DATABASE_URL** in commad line by ```bash set DATABASE_URL={DATABASE_URL} ``` **note** for mac ```export``` not ```set```
+4. set up  authentication and roles at auth0.the permissions in this project categorized into 3 categories according to roles
   * ASSISTANT 
    ```bash 
      'get:actors'
@@ -51,12 +51,12 @@ The URL of this application -> https://capstoneproject2.herokuapp.com/
      'patch:movies'
      ```
      *note* the token jwt for three roles ```assistant```,```director``` and ```producer``` are saved in setup.sh , you also need to `setup ```API_AUDIENCE``` , ```ALGORITHMS```,and ```AUTH0_DOMAIN```as you doing with database
-- ### Set up FLASK_APP and run it
+4. Set up FLASK_APP and run it
     ```bash
     export FLASK_APP=app.py
     run flask
     ```
-- ### running the test 
+5. running the test 
 
     To run test run the following :
 
