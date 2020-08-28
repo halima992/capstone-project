@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from models import setup_db, Actor, Movie
 from auth.auth import AuthError, requires_auth
-ENV = 'develop'
+ENV = 'deploy'
 
 
 def create_app(test_config=None):
