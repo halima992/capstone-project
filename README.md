@@ -27,9 +27,9 @@ The URL of this application -> https://capstoneproject2.herokuapp.com/
 4. set up  authentication and roles at auth0.the permissions in this project categorized into 3 categories according to roles
   * ASSISTANT 
    ```bash 
-     'get:actors'
-     'get:movies'
-     ```
+   'get:actors'
+   'get:movies'
+   ```
   * DIRECTOR 
    ```bash 
      'get:actors'
