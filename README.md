@@ -38,7 +38,7 @@ The URL of this application -> https://capstoneproject2.herokuapp.com/
      'delete:actors'
      'patch:actors'
      'patch:movies'
-     ```
+   ```
   * PRODUCER 
    ```bash 
      'get:actors'
@@ -49,7 +49,7 @@ The URL of this application -> https://capstoneproject2.herokuapp.com/
      'delete:movies'
      'patch:actors'
      'patch:movies'
-     ```
+   ```
      *note* the token jwt for three roles ```assistant```,```director``` and ```producer``` are saved in setup.sh , you also need to `setup ```API_AUDIENCE``` , ```ALGORITHMS```,and ```AUTH0_DOMAIN```as you doing with database
 4. Set up FLASK_APP and run it
     ```bash
