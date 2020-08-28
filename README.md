@@ -76,41 +76,47 @@ The endpoints in this project as following:
 
     **In general** return list of actors
 ```bash
-    {
-        "actors": [
-            {
-                "actor": "Lura Hudgens",
-                "gender": "F",
-                "id": 2,
-                "movie": "The Knight Before Christmas"
-            },
-            {
-                "actor": "sara Purcha",
-                "gender": "Male",
-                "id": 6,
-                "movie": "Dangerous Lies2"
-            },
-            {
-                "actor": "raye Hudge",
-                "gender": "Male",
-                "id": 8,
-                "movie": "The Knight Black"
-            },
-            {
-                "actor": "raye rer",
-                "gender": "Male",
-                "id": 9,
-                "movie": "The Knight Black"
-            },
-            {
-                "actor": "sos rer",
-                "gender": "Male",
-                "id": 10,
-                "movie": "The Knight Black"
-            }
-        ],
-        "success": true
-    }
+{
+    "actors": [
+        {
+            "actor": "Jene Leavy",
+            "gender": "Female",
+            "id": 1,
+            "movie": "Don't Breathe"
+        },
+        {
+            "actor": "Dylan Minnete",
+            "gender": "Male",
+            "id": 2,
+            "movie": "Don't Breathe"
+        },
+        {
+            "actor": "Erasmo Carols",
+            "gender": "Male",
+            "id": 3,
+            "movie": "Airplane Mode"
+        },
+        {
+            "actor": "Larissa Manolean",
+            "gender": "Female",
+            "id": 4,
+            "movie": "Airplane Mode"
+        },
+        {
+            "actor": "Nick Purcha",
+            "gender": "Male",
+            "id": 5,
+            "movie": "Dangerous Lies"
+        },
+        {
+            "actor": "Kate Winslet",
+            "gender": "Female",
+            "id": 6,
+            "movie": "The Dressmaker"
+        }
+    ],
+    "success": true
+}
 ```
 - ## GET /movies
 
@@ -120,14 +126,29 @@ The endpoints in this project as following:
 {
     "movies": [
         {
-            "catogry": "Comedy",
+            "catogry": "Drama",
             "id": 1,
-            "movie": "Dangerous Lies2"
+            "movie": "The Dressmaker"
         },
         {
-            "catogry": "documentation",
+            "catogry": "Horror",
+            "id": 2,
+            "movie": "Jason Voorhees"
+        },
+        {
+            "catogry": "Horror",
+            "id": 3,
+            "movie": "Don't Breathe"
+        },
+        {
+            "catogry": "Drama",
+            "id": 4,
+            "movie": "Airplane Mode"
+        },
+        {
+            "catogry": "Drama",
             "id": 5,
-            "movie": "world wild"
+            "movie": "Dangerous Lies"
         }
     ],
     "success": true
@@ -141,7 +162,7 @@ The endpoints in this project as following:
 
 ```bash
 {
-  "Deleted": 9,
+  "Deleted": 5,
   "success": true
 }
 ```
@@ -152,7 +173,7 @@ The endpoints in this project as following:
 
 ```bash
 {
-  "Deleted": 9,
+  "Deleted": 3,
   "success": true
 }
 ```

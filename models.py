@@ -7,7 +7,6 @@ import psycopg2
 
 database_name = "capstone"
 database_path = os.environ['DATABASE_URL']
-#database_path ='postgres://oeorpktmelksss:083a5d27635c38e9e1dc1916fd1cdefef2ae215098ddcbf0b6c1f305f954a37b@ec2-35-172-73-125.compute-1.amazonaws.com:5432/dabp5b9sp2nao4'
 db = SQLAlchemy()
 
 '''
