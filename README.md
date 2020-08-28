@@ -20,7 +20,191 @@ The URL of this application -> https://capstoneproject2.herokuapp.com/
 
 # starting and setup
 
-for running this application in local machine 
-- open terminal and directory of project
-- run ```bash pip install -r requirements.txt```
-- set up **DATABASE_URL** in commad line by ```bash set DATABASE_URL="{DATABASE_URL}" ``` **note** for mac ```export```
+## for running this application in local machine 
+- ### open terminal and directory of project
+- ### run ```bash pip install -r requirements.txt```
+- ### set up **DATABASE_URL** in commad line by ```bash set DATABASE_URL={DATABASE_URL} ``` **note** for mac ```export``` not ```set```
+- ### set up  authentication and roles at auth0.the permissions in this project categorized into 3 categories according to roles
+  * ASSISTANT 
+   ```bash 
+     'get:actors'
+     'get:movies'
+     ```
+  * DIRECTOR 
+   ```bash 
+     'get:actors'
+     'get:movies'
+     'post:actors'
+     'delete:actors'
+     'patch:actors'
+     'patch:movies'
+     ```
+  * PRODUCER 
+   ```bash 
+     'get:actors'
+     'get:movies'
+     'post:actors'
+     'post:movies'
+     'delete:actors'
+     'delete:movies'
+     'patch:actors'
+     'patch:movies'
+     ```
+     *note* the token jwt for three roles ```assistant```,```director``` and ```producer``` are saved in setup.sh , you also need to `setup ```API_AUDIENCE``` , ```ALGORITHMS```,and ```AUTH0_DOMAIN```as you doing with database
+- ### Set up FLASK_APP and run it
+    ```bash
+    export FLASK_APP=app.py
+    run flask
+    ```
+- ### running the test 
+
+    To run test run the following :
+
+    ```bash
+    dropdb capstone_test
+    createdb capstone_test
+    psql capstone_test < capstone.psql
+    export three tokens ```ASSISTANT```,```DIRECTOR``` and ```PRODUCER```
+    python test_app.py
+    ```
+    *note* `createdb` and `dropdb` doesn't work on Windows directly .So rather than using `CREATE DATABASE`, and `DROP database` in `psql `command. Also this command `psql capstone_test < capstone.psql` in windows should specific owner like this  `psql -U postgres capstone_test < capstone.psql`
+## Endpoint
+
+The endpoints in this project as following:
+
+- ### GET /actors
+
+    **In general** return list of actors
+```bash
+    {
+        "actors": [
+            {
+                "actor": "Lura Hudgens",
+                "gender": "F",
+                "id": 2,
+                "movie": "The Knight Before Christmas"
+            },
+            {
+                "actor": "sara Purcha",
+                "gender": "Male",
+                "id": 6,
+                "movie": "Dangerous Lies2"
+            },
+            {
+                "actor": "raye Hudge",
+                "gender": "Male",
+                "id": 8,
+                "movie": "The Knight Black"
+            },
+            {
+                "actor": "raye rer",
+                "gender": "Male",
+                "id": 9,
+                "movie": "The Knight Black"
+            },
+            {
+                "actor": "sos rer",
+                "gender": "Male",
+                "id": 10,
+                "movie": "The Knight Black"
+            }
+        ],
+        "success": true
+    }
+```
+- ### GET /movies
+
+    **In general** return list of movies
+
+```bash
+{
+    "movies": [
+        {
+            "catogry": "Comedy",
+            "id": 1,
+            "movie": "Dangerous Lies2"
+        },
+        {
+            "catogry": "documentation",
+            "id": 5,
+            "movie": "world wild"
+        }
+    ],
+    "success": true
+}
+
+ ```
+
+#### DELETE /actors/<int:id>
+
+**In general** Return deleted actor 
+
+```bash
+{
+  "Deleted": 9,
+  "success": true
+}
+```
+
+#### DELETE /movies/<int:id>
+
+**In general** Return deleted movie 
+
+```bash
+{
+  "Deleted": 9,
+  "success": true
+}
+```
+#### POST /actors
+
+**In general** Return  success true for posting new actor
+
+```bash
+{
+  "success": true
+}
+```
+#### POST /movies
+
+**In general** Return  success true for posting new movie
+
+```bash
+{
+  "success": true
+}
+```
+
+#### PATCH /actors/<int:id>
+
+**In general** Return  modifed actor 
+
+```bash
+{
+    "actor": [
+        {
+            "actor": "rayen Badian",
+            "gender": "Male",
+            "id": 9,
+            "movie": "The Godfather"
+        }
+    ],
+    "success": true
+}
+```
+#### PATCH /movies/int:id>
+
+**In general** Return  modifed movie 
+
+```bash
+{
+    "movie": [
+        {
+            "catogry": "Romantic",
+            "id": 7,
+            "movie": "All the Bright Places2"
+        }
+    ],
+    "success": true
+}
+```
